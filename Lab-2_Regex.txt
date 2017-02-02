@@ -1,0 +1,45 @@
+CAROLINE FRIEDMAN
+CSCI-3308
+LAB 2 : REGULAR EXPRESSIONS
+
+step 1 - download practice files
+
+step 2 - use the diff command
+$ diff fruitsOld.txt fruitsNew.txt		
+the “<” character means lines from the first file
+the “>” character means lines from the second file
+$ diff -c fruitsOld.txt fruitsNew.txt
+the “-c” shows differences in contextual output
+
+step 3 - use the wc command
+$ wc testPasswd.txt
+there are 15 lines
+there are 692 characters
+
+step 4 - use the cut command
+$ cut -c 1 testPasswd.txt
+$ cut -d ‘ ‘ -f 2,4 grades.txt
+
+step 5 - practice using pipes
+cut -f 4 -d “:” testPasswd.txt | sort -g | uniq
+???
+$ cut -d: -f1, 6 testPasswd.txt | grep ‘^[mws]’
+
+step 6 - use the sed command
+$ sed ’s/[a-zA-Z0-9]//g’ leetSpeak.txt
+$ sed ’s/[a-zA-Z]//g’ leetSpeak.txt
+$ sed ’s/[0-9]//g’ leetSpeak.txt
+$ sed ’s/[0-9]/_/g’ leetSpeak.txt
+$ sed 's/0/o/g' leetSpeak.txt |  sed 's/4/a/g'|  sed 's/3/e/g' |sed 's/5/s/g' | sed 's/7/t/g' | sed 's/1/i/g'
+yes, it’s possible and it can be helpful to use for later commands
+
+step 7 - use the awk command
+$ awk ‘{sum = $4 + $5 + $6 + $7 ; avg = sum / 4 ; print $1 “\t” $2 “\t” avg} grades.txt
+$ awk ‘BEGIN{sum += $3; n++} END {if (n > 0) print sum / 7;}’ grades.txt
+
+step 8 - more practice with regular expressions
+$ grep ‘\(([0-9]\{3\}\|[0-9]$ \{3\}\)[-]\?[0-9]\{3\}[-]\?[0-9]\{4\}’ regex_practice_data.txt | wc -l
+$ grep -c ‘(303-‘ regex_practice_data.txt
+$ grep -c ‘@‘ regex_practice_data.txt
+$ grep -c ‘.gov’ regex_practice_data.txt
+$ grep -o “\b[a-mA-M][^[:blank:]]*\.[^:blank:]]*” regex_practice_data.txt | wc -l
