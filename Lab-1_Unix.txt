@@ -1,6 +1,6 @@
 CAROLINE FRIEDMAN
 CSCI-3308
-LAB 1 : UNIX
+LAB 1 :
 
 mkdir cs3308					make a directory “cs3308” and move into directory
 mv cs3308 csci3308				rename directory “cs3308” to “csci3308”
