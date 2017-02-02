@@ -1,0 +1,33 @@
+CAROLINE FRIEDMAN
+CSCI-3308
+LAB 1 : UNIX
+
+mkdir cs3308					make a directory “cs3308” and move into directory
+mv cs3308 csci3308				rename directory “cs3308” to “csci3308”
+cd						change to root directory
+cp file-1 file-2				make copy of file
+rm file-2					delete copy of file
+mkdir tmp					make directory “tmp”
+rmdir tmp					delete directory “tmp”
+cat file-1					view contents of file
+less file-1					view contents of file (alternate)
+head -c file-1					view beginning of file
+tail -c file-1					view end of file
+grep -Ril the					list all files containing the word “the”
+find -f books.txt				list full path to all files named “books.txt”
+zip -r dir.zip					zip contents in directory to file named “dir.zip”
+unzip dir.zip -d tmp				unzip dir.zip into directory “tmp”
+tar -zxvf tmp.tar				dir.tar tar contents in directory into file named “dir.tar”
+tar -xvf tmp.tar				untar “dir.tar” into directory “tmp”
+touch -t date file-1				modify file’s last modified timestamp to now
+
+sort -t ‘:’ -k1, 1 /etc/passwd			sort file based on username
+ls -l | sort -k 3				sort file based on username
+sort -n -t ‘:’ -k 3, 4 -g /etc/passwd 		sort file based on UID
+sort -t ‘:’ -k 3 -g /etc/group  		sort first based on GID
+sort -n -t ’:’ -k 3, 4 -g /etc/passwd 		then on UID
+grep -wn “Marx” /etc/passwd			show all lines with “Marx” in it
+wc -l file.txt					count number of lines in file.txt
+awk -d : -f1 /etc/passwd			print just usernames
+awk -d : -f4 /etc/passwd 			print unique list of GIDs
+awk -d : -f4 /etc/passwd			answer from previous question, redirect to file named “tmp”	
